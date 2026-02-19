@@ -1,0 +1,35 @@
+$card-bg-color: #ffffff;
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$text-color: #333;
+
+@mixin card-shadow {
+  box-shadow: $card-shadow;
+}
+
+.product-card {
+  background-color: $card-bg-color;
+  border-radius: $border-radius;
+  padding: 16px;
+  max-width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  @include card-shadow;
+
+  &__image {
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    margin: 12px 0;
+    color: $text-color;
+  }
+
+  &__description {
+    font-size: 1em;
+    color: lighten($text-color, 20%);
+    line-height: 1.5;
+  }
+}
