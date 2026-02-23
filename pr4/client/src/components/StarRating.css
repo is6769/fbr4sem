@@ -1,0 +1,31 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.star-full { color: #f59e0b; }
+.star-empty { color: #ccc; }
+
+.star-partial {
+  position: relative;
+  display: inline-block;
+}
+
+.star-bg { color: #ccc; }
+
+.star-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  color: #f59e0b;
+  white-space: nowrap;
+}
+
+.rating-value {
+  font-size: 12px;
+  color: #666;
+  margin-left: 4px;
+}
