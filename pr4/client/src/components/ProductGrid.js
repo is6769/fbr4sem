@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import './ProductGrid.css';
 
-function ProductGrid({ products, loading, error, onProductClick }) {
+function ProductGrid({ products, loading, error, onProductClick, onEdit, onDelete }) {
   if (loading) {
     return (
       <div className="grid-state">
@@ -39,6 +39,8 @@ function ProductGrid({ products, loading, error, onProductClick }) {
             key={product.id}
             product={product}
             onClick={onProductClick}
+            onEdit={onEdit}
+            onDelete={onDelete}
           />
         ))}
       </div>

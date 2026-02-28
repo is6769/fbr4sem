@@ -6,7 +6,7 @@ function formatPrice(price) {
   return price.toLocaleString('ru-RU') + ' ₽';
 }
 
-function ProductCard({ product, onClick }) {
+function ProductCard({ product, onClick, onEdit, onDelete }) {
   const [imgError, setImgError] = useState(false);
 
   const stockStatus =
@@ -40,12 +40,26 @@ function ProductCard({ product, onClick }) {
             <span className="card-price">{formatPrice(product.price)}</span>
             <span className={`stock-${stockStatus.cls}`}>{stockStatus.label}</span>
           </div>
-          <button
-            className="card-btn"
-            onClick={e => { e.stopPropagation(); onClick(product); }}
-          >
-            Подробнее
-          </button>
+          <div className="card-actions">
+            <button
+              className="card-btn"
+              onClick={e => { e.stopPropagation(); onClick(product); }}
+            >
+              Подробнее
+            </button>
+            <button
+              className="card-btn card-btn-edit"
+              onClick={e => { e.stopPropagation(); onEdit(product); }}
+            >
+              Изменить
+            </button>
+            <button
+              className="card-btn card-btn-del"
+              onClick={e => { e.stopPropagation(); onDelete(product.id); }}
+            >
+              Удалить
+            </button>
+          </div>
         </div>
       </div>
     </article>

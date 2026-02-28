@@ -174,6 +174,69 @@ app.get('/api/categories', (req, res) => {
   res.json(categories);
 });
 
+app.post('/api/products', (req, res) => {
+  const { name, category, description, price, stock, rating, image } = req.body;
+  if (!name || !category || price == null) {
+    return res.status(400).json({ error: 'Поля name, category и price обязательны' });
+  }
+  const newProduct = {
+    id: products.length ? Math.max(...products.map(p => p.id)) + 1 : 1,
+    name,
+    category,
+    description: description || '',
+    price: Number(price),
+    stock: Number(stock) || 0,
+    rating: Number(rating) || 0,
+    image: image || ''
+  };
+  products.push(newProduct);
+  res.status(201).json(newProduct);
+});
+
+app.put('/api/products/:id', (req, res) => {
+  const idx = products.findIndex(p => p.id === Number(req.params.id));
+  if (idx === -1) return res.status(404).json({ error: 'Товар не найден' });
+
+  const { name, category, description, price, stock, rating, image } = req.body;
+  if (!name || !category || price == null) {
+    return res.status(400).json({ error: 'Поля name, category и price обязательны' });
+  }
+  products[idx] = {
+    id: products[idx].id,
+    name,
+    category,
+    description: description || '',
+    price: Number(price),
+    stock: Number(stock) || 0,
+    rating: Number(rating) || 0,
+    image: image || ''
+  };
+  res.json(products[idx]);
+});
+
+app.patch('/api/products/:id', (req, res) => {
+  const product = products.find(p => p.id === Number(req.params.id));
+  if (!product) return res.status(404).json({ error: 'Товар не найден' });
+
+  const allowed = ['name', 'category', 'description', 'price', 'stock', 'rating', 'image'];
+  allowed.forEach(key => {
+    if (req.body[key] !== undefined) {
+      product[key] = ['price', 'stock', 'rating'].includes(key)
+        ? Number(req.body[key])
+        : req.body[key];
+    }
+  });
+  res.json(product);
+});
+
+app.delete('/api/products/:id', (req, res) => {
+  const idx = products.findIndex(p => p.id === Number(req.params.id));
+  if (idx === -1) return res.status(404).json({ error: 'Товар не найден' });
+
+  const deleted = products.splice(idx, 1)[0];
+  res.json(deleted);
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

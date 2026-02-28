@@ -95,3 +95,30 @@
 .card-btn:hover {
   background: #1d4ed8;
 }
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.card-actions .card-btn {
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 12px;
+}
+
+.card-btn-edit {
+  background: #f59e0b;
+}
+
+.card-btn-edit:hover {
+  background: #d97706;
+}
+
+.card-btn-del {
+  background: #dc2626;
+}
+
+.card-btn-del:hover {
+  background: #b91c1c;
+}
