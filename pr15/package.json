@@ -1,0 +1,12 @@
+{
+  "name": "pr15-todo-pwa",
+  "version": "1.0.0",
+  "description": "Todo PWA с App Shell и HTTPS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

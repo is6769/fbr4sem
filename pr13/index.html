@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список задач</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 class="app__title">Мои задачи</h1>
+    </header>
+
+    <main class="app__main">
+      <form class="task-form" id="taskForm">
+        <input
+          class="task-form__input"
+          type="text"
+          id="taskInput"
+          placeholder="Введите задачу..."
+          autocomplete="off"
+          required
+        >
+        <button class="task-form__btn" type="submit">Добавить</button>
+      </form>
+
+      <section class="task-list-section">
+        <h2 class="task-list-section__heading">Задачи</h2>
+        <ul class="task-list" id="taskList"></ul>
+        <p class="task-list__empty" id="emptyMsg">Нет задач. Добавьте первую!</p>
+      </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

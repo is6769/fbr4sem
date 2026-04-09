@@ -1,0 +1,16 @@
+{
+  "name": "pr16-todo-pwa",
+  "version": "1.0.0",
+  "description": "Todo PWA с Socket.IO и Push-уведомлениями",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate-vapid": "node -e \"const wp=require('web-push'); const keys=wp.generateVAPIDKeys(); console.log('VAPID_PUBLIC_KEY=' + keys.publicKey); console.log('VAPID_PRIVATE_KEY=' + keys.privateKey);\""
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^4.22.1",
+    "socket.io": "^4.7.2",
+    "web-push": "^3.6.7"
+  }
+}
