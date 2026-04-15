@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список задач</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Задачи">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <meta name="msapplication-TileImage" content="./icons/icon-192.png">
+  <meta name="msapplication-TileColor" content="#4f46e5">
+  <meta name="description" content="PWA-приложение для управления задачами с напоминаниями">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 class="app__title">Мои задачи</h1>
+      <nav class="app__nav">
+        <a class="app__nav-link app__nav-link--active" href="./index.html">Задачи</a>
+        <a class="app__nav-link" href="./about.html">О нас</a>
+      </nav>
+    </header>
+
+    <main class="app__main" id="appContent">
+      <div class="push-panel" id="pushPanel">
+        <p class="push-panel__status" id="pushStatus">Загрузка...</p>
+        <div class="push-panel__actions">
+          <button class="push-panel__btn push-panel__btn--subscribe" id="btnSubscribe" style="display:none">
+            Включить уведомления
+          </button>
+          <button class="push-panel__btn push-panel__btn--unsubscribe" id="btnUnsubscribe" style="display:none">
+            Отключить уведомления
+          </button>
+        </div>
+      </div>
+
+      <form class="task-form" id="taskForm">
+        <div class="task-form__row">
+          <input
+            class="task-form__input"
+            type="text"
+            id="taskInput"
+            placeholder="Введите задачу..."
+            autocomplete="off"
+            required
+          >
+          <button class="task-form__btn" type="submit">Добавить</button>
+        </div>
+        <div class="task-form__row task-form__reminder-row">
+          <label class="task-form__label" for="reminderInput">Напоминание:</label>
+          <input
+            class="task-form__datetime"
+            type="datetime-local"
+            id="reminderInput"
+          >
+        </div>
+      </form>
+
+      <section class="task-list-section">
+        <h2 class="task-list-section__heading">Задачи</h2>
+        <ul class="task-list" id="taskList"></ul>
+        <p class="task-list__empty" id="emptyMsg">Нет задач. Добавьте первую!</p>
+      </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

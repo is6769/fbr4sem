@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О нас — Список задач</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Задачи">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 class="app__title">Мои задачи</h1>
+      <nav class="app__nav">
+        <a class="app__nav-link" href="./index.html" data-page="tasks">Задачи</a>
+        <a class="app__nav-link app__nav-link--active" href="./about.html" data-page="about">О нас</a>
+      </nav>
+    </header>
+
+    <main class="app__main" id="appContent">
+      <section class="about">
+        <div class="about__icon">✓</div>
+        <h2 class="about__title">О приложении</h2>
+        <p class="about__description">
+          «Список задач» — это прогрессивное веб-приложение (PWA) для удобного
+          управления вашими делами с функцией напоминаний. Работает офлайн,
+          сохраняет данные локально и может быть установлено на любое устройство.
+          Напоминания работают даже при закрытом приложении.
+        </p>
+
+        <ul class="about__features">
+          <li class="about__feature">
+            <span class="about__feature-icon">📋</span>
+            <span>Создание, просмотр и удаление задач</span>
+          </li>
+          <li class="about__feature">
+            <span class="about__feature-icon">⏰</span>
+            <span>Напоминания с push-уведомлениями</span>
+          </li>
+          <li class="about__feature">
+            <span class="about__feature-icon">💾</span>
+            <span>Хранение данных в LocalStorage</span>
+          </li>
+          <li class="about__feature">
+            <span class="about__feature-icon">📡</span>
+            <span>Полная офлайн-поддержка через Service Worker</span>
+          </li>
+          <li class="about__feature">
+            <span class="about__feature-icon">📱</span>
+            <span>Устанавливается как нативное приложение</span>
+          </li>
+        </ul>
+
+        <div class="about__meta">
+          <p><strong>Версия:</strong> 4.0.0</p>
+          <p><strong>Технологии:</strong> HTML, CSS, JavaScript, Service Worker, Web Push, Socket.IO</p>
+          <p><strong>Курс:</strong> Разработка веб-приложений, практика №17</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+  </div>
+</body>
+</html>
